@@ -16,5 +16,20 @@ namespace FashionHousesProject
         {
             InitializeComponent();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'fashionHousesDataSet.Designers' table. You can move, or remove it, as needed.
+            this.designersTableAdapter.Fill(this.fashionHousesDataSet.Designers);
+            // TODO: This line of code loads data into the 'fashionHousesDataSet.Clothes' table. You can move, or remove it, as needed.
+            this.clothesTableAdapter.Fill(this.fashionHousesDataSet.Clothes);
+            // TODO: This line of code loads data into the 'fashionHousesDataSet.FashionHouses' table. You can move, or remove it, as needed.
+            this.fashionHousesTableAdapter.Fill(this.fashionHousesDataSet.FashionHouses);
+        }
+
+        private void dataGridViewCL_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
     }
 }
