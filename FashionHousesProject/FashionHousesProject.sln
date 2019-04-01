@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FashionHousesProject", "FashionHousesProject\FashionHousesProject.csproj", "{92B2387F-20BD-4876-A10F-0F5606330A6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryFashionHouses", "ClassLibraryFashionHouses\ClassLibraryFashionHouses.csproj", "{F5B0CAF1-8D6E-4F04-B0F4-432B8F673C25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{92B2387F-20BD-4876-A10F-0F5606330A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92B2387F-20BD-4876-A10F-0F5606330A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92B2387F-20BD-4876-A10F-0F5606330A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5B0CAF1-8D6E-4F04-B0F4-432B8F673C25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5B0CAF1-8D6E-4F04-B0F4-432B8F673C25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5B0CAF1-8D6E-4F04-B0F4-432B8F673C25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5B0CAF1-8D6E-4F04-B0F4-432B8F673C25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
