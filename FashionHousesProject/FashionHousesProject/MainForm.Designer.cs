@@ -189,6 +189,7 @@
             this.btn_CL_Filter.TabIndex = 20;
             this.btn_CL_Filter.Text = "Вiдфiльтрувати";
             this.btn_CL_Filter.UseVisualStyleBackColor = true;
+            this.btn_CL_Filter.Click += new System.EventHandler(this.btn_CL_Filter_Click);
             // 
             // label_CL_COLOR
             // 
@@ -300,6 +301,7 @@
             this.btnDelCL.TabIndex = 10;
             this.btnDelCL.Text = "Видалити Одяг";
             this.btnDelCL.UseVisualStyleBackColor = true;
+            this.btnDelCL.Click += new System.EventHandler(this.btnDelCL_Click);
             // 
             // btnAddCL
             // 
