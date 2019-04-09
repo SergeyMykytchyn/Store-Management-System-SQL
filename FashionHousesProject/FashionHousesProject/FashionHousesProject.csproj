@@ -58,6 +58,18 @@
     <Compile Include="AddClothToShopForm.Designer.cs">
       <DependentUpon>AddClothToShopForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangeCloth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeCloth.Designer.cs">
+      <DependentUpon>ChangeCloth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeCLSHForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeCLSHForm.Designer.cs">
+      <DependentUpon>ChangeCLSHForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FashionHousesDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -71,11 +83,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShowMeClothInShops.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowMeClothInShops.Designer.cs">
+      <DependentUpon>ShowMeClothInShops.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddClothForm.resx">
       <DependentUpon>AddClothForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddClothToShopForm.resx">
       <DependentUpon>AddClothToShopForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeCloth.resx">
+      <DependentUpon>ChangeCloth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeCLSHForm.resx">
+      <DependentUpon>ChangeCLSHForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -89,6 +113,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ShowMeClothInShops.resx">
+      <DependentUpon>ShowMeClothInShops.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="FashionHousesDataSet.xsc">
       <DependentUpon>FashionHousesDataSet.xsd</DependentUpon>
     </None>

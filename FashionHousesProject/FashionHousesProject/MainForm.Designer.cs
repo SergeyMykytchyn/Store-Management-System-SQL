@@ -169,6 +169,7 @@
             this.btn_Change_CL.TabIndex = 22;
             this.btn_Change_CL.Text = "Змiнити Одяг";
             this.btn_Change_CL.UseVisualStyleBackColor = true;
+            this.btn_Change_CL.Click += new System.EventHandler(this.btn_Change_CL_Click);
             // 
             // btn_add_CL_to_SH
             // 
@@ -358,6 +359,7 @@
             this.dataGridViewCL.RowTemplate.Height = 24;
             this.dataGridViewCL.Size = new System.Drawing.Size(916, 401);
             this.dataGridViewCL.TabIndex = 0;
+            this.dataGridViewCL.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCL_CellDoubleClick);
             this.dataGridViewCL.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewCL_DataError);
             // 
             // cLIDDataGridViewTextBoxColumn

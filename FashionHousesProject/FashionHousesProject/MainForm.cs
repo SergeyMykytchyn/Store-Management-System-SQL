@@ -176,5 +176,41 @@ namespace FashionHousesProject
 
             }
         }
+
+        private void dataGridViewCL_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                var row = dataGridViewCL.CurrentCell.OwningRow;
+                int CL_ID = Convert.ToInt32(row.Cells["cLIDDataGridViewTextBoxColumn"].Value);
+
+                ShowMeClothInShops clsh = new ShowMeClothInShops(CL_ID);
+                clsh.ShowDialog();
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void btn_Change_CL_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var row = dataGridViewCL.CurrentCell.OwningRow;
+                int CL_ID = Convert.ToInt32(row.Cells["cLIDDataGridViewTextBoxColumn"].Value);
+
+                var CLtoChange = fashionHousesDataSet.Clothes.Rows.Find(CL_ID);
+
+                ChangeCloth cgcl = new ChangeCloth(CL_ID, (int)CLtoChange["CL_DES"], (int)CLtoChange["CL_FH"], (string)CLtoChange["CL_DESCRIPTION"], (string)CLtoChange["CL_COLOR"], (string)CLtoChange["CL_CATEGORY"]);
+                cgcl.ShowDialog();
+
+                this.clothesTableAdapter.Fill(this.fashionHousesDataSet.Clothes);
+            }
+            catch
+            {
+                return;
+            }
+        }
     }
 }
