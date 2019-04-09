@@ -159,5 +159,22 @@ namespace FashionHousesProject
 
             clothesTableAdapter.Fill(fashionHousesDataSet.Clothes);
         }
+
+        private void btn_add_CL_to_SH_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var row = dataGridViewCL.CurrentCell.OwningRow;
+
+                int CL_ID = Convert.ToInt32(row.Cells["cLIDDataGridViewTextBoxColumn"].Value);
+
+                AddClothToShopForm cl_sh = new AddClothToShopForm(CL_ID);
+                cl_sh.ShowDialog();
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

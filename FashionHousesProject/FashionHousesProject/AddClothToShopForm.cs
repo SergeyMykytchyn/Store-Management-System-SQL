@@ -24,7 +24,6 @@ namespace FashionHousesProject
 
         private void AddClothToShopForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'fashionHousesDataSet.ClothesInShop' table. You can move, or remove it, as needed.
             this.clothesInShopTableAdapter.Fill(this.fashionHousesDataSet.ClothesInShop);
             this.fashionHousesTableAdapter.Fill(this.fashionHousesDataSet.FashionHouses);
             this.shopClothesTableAdapter.Fill(this.fashionHousesDataSet.ShopClothes);

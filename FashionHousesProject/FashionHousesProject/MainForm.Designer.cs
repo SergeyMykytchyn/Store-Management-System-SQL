@@ -179,6 +179,7 @@
             this.btn_add_CL_to_SH.TabIndex = 21;
             this.btn_add_CL_to_SH.Text = "Додати одяг до магазину";
             this.btn_add_CL_to_SH.UseVisualStyleBackColor = true;
+            this.btn_add_CL_to_SH.Click += new System.EventHandler(this.btn_add_CL_to_SH_Click);
             // 
             // btn_CL_Filter
             // 
