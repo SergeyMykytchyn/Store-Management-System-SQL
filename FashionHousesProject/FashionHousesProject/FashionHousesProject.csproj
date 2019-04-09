@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddClothForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClothForm.Designer.cs">
+      <DependentUpon>AddClothForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddClothToShopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClothToShopForm.Designer.cs">
+      <DependentUpon>AddClothToShopForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FashionHousesDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -59,6 +71,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddClothForm.resx">
+      <DependentUpon>AddClothForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddClothToShopForm.resx">
+      <DependentUpon>AddClothToShopForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

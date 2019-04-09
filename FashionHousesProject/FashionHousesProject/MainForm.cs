@@ -21,11 +21,8 @@ namespace FashionHousesProject
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'fashionHousesDataSet.Designers' table. You can move, or remove it, as needed.
             this.designersTableAdapter.Fill(this.fashionHousesDataSet.Designers);
-            // TODO: This line of code loads data into the 'fashionHousesDataSet.Clothes' table. You can move, or remove it, as needed.
             this.clothesTableAdapter.Fill(this.fashionHousesDataSet.Clothes);
-            // TODO: This line of code loads data into the 'fashionHousesDataSet.FashionHouses' table. You can move, or remove it, as needed.
             this.fashionHousesTableAdapter.Fill(this.fashionHousesDataSet.FashionHouses);
         }
 
@@ -153,6 +150,14 @@ namespace FashionHousesProject
             fashionHousesDataSet.ClothesInShop.AcceptChanges();
             clothesBindingSource.RemoveCurrent();
             clothesTableAdapter.Update(fashionHousesDataSet.Clothes);
+        }
+
+        private void btnAddCL_Click(object sender, EventArgs e)
+        {
+            AddClothForm add_cloth_form = new AddClothForm();
+            add_cloth_form.ShowDialog();
+
+            clothesTableAdapter.Fill(fashionHousesDataSet.Clothes);
         }
     }
 }
