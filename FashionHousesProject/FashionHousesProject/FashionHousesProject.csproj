@@ -64,6 +64,12 @@
     <Compile Include="AddDesignerForm.Designer.cs">
       <DependentUpon>AddDesignerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddDivisionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDivisionForm.Designer.cs">
+      <DependentUpon>AddDivisionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddFashionHouse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,12 @@
     <Compile Include="ChangeDesignerForm.Designer.cs">
       <DependentUpon>ChangeDesignerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangeDivision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeDivision.Designer.cs">
+      <DependentUpon>ChangeDivision.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangeFashionHouse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +131,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShowDivisionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowDivisionsForm.Designer.cs">
+      <DependentUpon>ShowDivisionsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShowFashionHouseShops.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +158,9 @@
     <EmbeddedResource Include="AddDesignerForm.resx">
       <DependentUpon>AddDesignerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddDivisionForm.resx">
+      <DependentUpon>AddDivisionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddFashionHouse.resx">
       <DependentUpon>AddFashionHouse.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChangeDesignerForm.resx">
       <DependentUpon>ChangeDesignerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeDivision.resx">
+      <DependentUpon>ChangeDivision.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangeFashionHouse.resx">
       <DependentUpon>ChangeFashionHouse.cs</DependentUpon>
@@ -173,6 +197,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ShowDivisionsForm.resx">
+      <DependentUpon>ShowDivisionsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ShowFashionHouseShops.resx">
       <DependentUpon>ShowFashionHouseShops.cs</DependentUpon>
     </EmbeddedResource>

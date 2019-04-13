@@ -636,6 +636,7 @@
             this.dataGridViewFH.RowTemplate.Height = 24;
             this.dataGridViewFH.Size = new System.Drawing.Size(878, 401);
             this.dataGridViewFH.TabIndex = 0;
+            this.dataGridViewFH.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFH_CellDoubleClick);
             // 
             // FH_President
             // 

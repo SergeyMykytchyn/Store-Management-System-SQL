@@ -580,5 +580,13 @@ namespace FashionHousesProject
 
             }
         }
+
+        private void dataGridViewFH_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int FH_ID = Convert.ToInt32(dataGridViewFH.CurrentRow.Cells["fHIDDataGridViewTextBoxColumn"].Value);
+
+            ShowDivisionsForm df = new ShowDivisionsForm(FH_ID);
+            df.ShowDialog();
+        }
     }
 }
