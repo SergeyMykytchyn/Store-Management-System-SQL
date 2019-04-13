@@ -76,6 +76,12 @@
     <Compile Include="ChangeCLSHForm.Designer.cs">
       <DependentUpon>ChangeCLSHForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangeFashionHouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeFashionHouse.Designer.cs">
+      <DependentUpon>ChangeFashionHouse.cs</DependentUpon>
+    </Compile>
     <Compile Include="FashionHousesDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChangeCLSHForm.resx">
       <DependentUpon>ChangeCLSHForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeFashionHouse.resx">
+      <DependentUpon>ChangeFashionHouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

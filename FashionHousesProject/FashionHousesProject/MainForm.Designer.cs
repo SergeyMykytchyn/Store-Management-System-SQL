@@ -487,6 +487,7 @@
             this.btn_CHANGE_FH.TabIndex = 16;
             this.btn_CHANGE_FH.Text = "Змiнити Дом Моди";
             this.btn_CHANGE_FH.UseVisualStyleBackColor = true;
+            this.btn_CHANGE_FH.Click += new System.EventHandler(this.btn_CHANGE_FH_Click);
             // 
             // button_FH_Filter
             // 

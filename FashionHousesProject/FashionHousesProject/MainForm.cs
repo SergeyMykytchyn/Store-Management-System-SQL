@@ -372,5 +372,22 @@ namespace FashionHousesProject
 
             }
         }
+
+        private void btn_CHANGE_FH_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int FH_ID = Convert.ToInt32(dataGridViewFH.CurrentRow.Cells["fHIDDataGridViewTextBoxColumn"].Value);
+
+                ChangeFashionHouse chfh = new ChangeFashionHouse(FH_ID);
+                chfh.ShowDialog();
+                UpdateDataGridViewCL();
+                UpdateDataGridViewFH();
+            }
+            catch
+            {
+
+            }
+        }
     }
 }
