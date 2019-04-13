@@ -21,6 +21,8 @@ namespace FashionHousesProject
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'fashionHousesDataSet.Presidents' table. You can move, or remove it, as needed.
+            this.presidentsTableAdapter.Fill(this.fashionHousesDataSet.Presidents);
             this.designersTableAdapter.Fill(this.fashionHousesDataSet.Designers);
             this.clothesTableAdapter.Fill(this.fashionHousesDataSet.Clothes);
             this.fashionHousesTableAdapter.Fill(this.fashionHousesDataSet.FashionHouses);
@@ -187,6 +189,7 @@ namespace FashionHousesProject
                 ShowMeClothInShops clsh = new ShowMeClothInShops(CL_ID);
                 clsh.ShowDialog();
             }
+
             catch
             {
 
@@ -211,6 +214,60 @@ namespace FashionHousesProject
             {
                 return;
             }
+        }
+
+        private void button_FH_Filter_Click(object sender, EventArgs e)
+        {
+            string FH_NAME = comboBox_FH_FH.Text;
+            string FH_ADRESS = comboBox_FH_ADRESS.Text;
+            string FH_PR = comboBox_FH_PR.Text;
+
+            string query = "SELECT * FROM FashionHouses";
+            SqlDataAdapter adapter;
+            DataTable table = new DataTable();
+
+            bool firstParameter = true;
+
+            if (FH_PR != String.Empty)
+            {
+                firstParameter = false;
+                query += " INNER JOIN Presidents ON FH_ID = PR_FH WHERE PR_FULLNAME = @PR_FULLNAME ";
+            }
+
+            if (FH_NAME != String.Empty)
+            {
+                if (firstParameter)
+                {
+                    query += " WHERE ";
+                    firstParameter = false;
+                }
+                else
+                    query += " AND";
+                query += " FH_NAME = @FH_NAME";
+            }
+
+            if (FH_ADRESS != String.Empty)
+            {
+                if (firstParameter)
+                {
+                    query += " WHERE ";
+                    firstParameter = false;
+                }
+                else
+                    query += " AND";
+                query += " FH_ADRESS = @FH_ADRESS";
+            }
+
+            query += ";";
+
+            adapter = new SqlDataAdapter(query, clothesTableAdapter.Connection);
+            adapter.SelectCommand.Parameters.AddWithValue("@PR_FULLNAME", FH_PR);
+            adapter.SelectCommand.Parameters.AddWithValue("@FH_NAME", FH_NAME);
+            adapter.SelectCommand.Parameters.AddWithValue("@FH_ADRESS", FH_ADRESS);
+
+            adapter.Fill(table);
+
+            dataGridViewFH.DataSource = table;
         }
     }
 }
