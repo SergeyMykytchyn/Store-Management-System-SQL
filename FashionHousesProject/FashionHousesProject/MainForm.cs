@@ -21,7 +21,6 @@ namespace FashionHousesProject
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'fashionHousesDataSet.Presidents' table. You can move, or remove it, as needed.
             this.presidentsTableAdapter.Fill(this.fashionHousesDataSet.Presidents);
             this.designersTableAdapter.Fill(this.fashionHousesDataSet.Designers);
             this.clothesTableAdapter.Fill(this.fashionHousesDataSet.Clothes);
@@ -53,11 +52,7 @@ namespace FashionHousesProject
             var result = FHexists_adapter.SelectCommand.ExecuteScalar();
             FHexists_adapter.SelectCommand.Connection.Close();
             if (result != null)
-            {
-                if ((int)result > 0)
-                    return true;
-                else return false;
-            }
+                return true;
             return false;
         }
 
@@ -268,6 +263,114 @@ namespace FashionHousesProject
             adapter.Fill(table);
 
             dataGridViewFH.DataSource = table;
+        }
+
+        private void UpdateDataGridViewFH()
+        {
+            this.fashionHousesTableAdapter.Fill(this.fashionHousesDataSet.FashionHouses);
+            this.presidentsTableAdapter.Fill(this.fashionHousesDataSet.Presidents);
+        }
+
+        private void btnAddFH_Click(object sender, EventArgs e)
+        {
+            AddFashionHouse fh_form = new AddFashionHouse();
+            fh_form.ShowDialog();
+
+            UpdateDataGridViewFH();
+        }
+
+        private void UpdateDataGridViewCL()
+        {
+            this.clothesTableAdapter.Fill(this.fashionHousesDataSet.Clothes);
+        }
+
+        private void btnDelFH_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int FH_ID = Convert.ToInt32(dataGridViewFH.CurrentRow.Cells["fHIDDataGridViewTextBoxColumn"].Value);
+
+                string query;
+                SqlDataAdapter adapter;
+
+                query = "DELETE ClothesInShop FROM ClothesInShop INNER JOIN Clothes ON CLSH_CL = CL_ID WHERE CL_FH = @FH_ID;";
+                adapter = new SqlDataAdapter(query, clothesTableAdapter.Connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@FH_ID", FH_ID);
+                adapter.SelectCommand.Connection.Open();
+                adapter.SelectCommand.ExecuteNonQuery();
+                adapter.SelectCommand.Connection.Close();
+
+                query = "DELETE Clothes WHERE CL_FH = @FH_ID;";
+                adapter = new SqlDataAdapter(query, clothesTableAdapter.Connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@FH_ID", FH_ID);
+                adapter.SelectCommand.Connection.Open();
+                adapter.SelectCommand.ExecuteNonQuery();
+                adapter.SelectCommand.Connection.Close();
+
+                query = "DELETE FROM ShopClothes WHERE SH_FH = @FH_ID;";
+                adapter = new SqlDataAdapter(query, clothesTableAdapter.Connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@FH_ID", FH_ID);
+                adapter.SelectCommand.Connection.Open();
+                adapter.SelectCommand.ExecuteNonQuery();
+                adapter.SelectCommand.Connection.Close();
+
+                query = "DELETE ClothesInShop FROM (ClothesInShop INNER JOIN Clothes ON CLSH_CL = CL_ID) INNER JOIN Designers ON CL_DES = DES_ID WHERE DES_FH = @FH_ID;";
+                adapter = new SqlDataAdapter(query, clothesTableAdapter.Connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@FH_ID", FH_ID);
+                adapter.SelectCommand.Connection.Open();
+                adapter.SelectCommand.ExecuteNonQuery();
+                adapter.SelectCommand.Connection.Close();
+
+                query = "DELETE Clothes FROM  Clothes INNER JOIN Designers ON CL_DES = DES_ID WHERE DES_FH = @FH_ID;";
+                adapter = new SqlDataAdapter(query, clothesTableAdapter.Connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@FH_ID", FH_ID);
+                adapter.SelectCommand.Connection.Open();
+                adapter.SelectCommand.ExecuteNonQuery();
+                adapter.SelectCommand.Connection.Close();
+
+                query = "DELETE FROM Designers WHERE DES_FH = @FH_ID;";
+                adapter = new SqlDataAdapter(query, clothesTableAdapter.Connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@FH_ID", FH_ID);
+                adapter.SelectCommand.Connection.Open();
+                adapter.SelectCommand.ExecuteNonQuery();
+                adapter.SelectCommand.Connection.Close();
+
+                query = "DELETE Divisions WHERE DIV_FH = @FH_ID;";
+                adapter = new SqlDataAdapter(query, clothesTableAdapter.Connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@FH_ID", FH_ID);
+                adapter.SelectCommand.Connection.Open();
+                adapter.SelectCommand.ExecuteNonQuery();
+                adapter.SelectCommand.Connection.Close();
+
+                query = "DELETE Presidents WHERE PR_FH = @FH_ID;";
+                adapter = new SqlDataAdapter(query, clothesTableAdapter.Connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@FH_ID", FH_ID);
+                adapter.SelectCommand.Connection.Open();
+                adapter.SelectCommand.ExecuteNonQuery();
+                adapter.SelectCommand.Connection.Close();
+
+                query = "DELETE FashionHouses WHERE FH_ID = @FH_ID;";
+                adapter = new SqlDataAdapter(query, clothesTableAdapter.Connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@FH_ID", FH_ID);
+                adapter.SelectCommand.Connection.Open();
+                adapter.SelectCommand.ExecuteNonQuery();
+                adapter.SelectCommand.Connection.Close();
+
+                fashionHousesDataSet.ClothesInShop.AcceptChanges();
+                fashionHousesDataSet.Clothes.AcceptChanges();
+                fashionHousesDataSet.ShopClothes.AcceptChanges();
+                fashionHousesDataSet.Designers.AcceptChanges();
+                fashionHousesDataSet.Divisions.AcceptChanges();
+                fashionHousesDataSet.Presidents.AcceptChanges();
+                fashionHousesDataSet.FashionHouses.AcceptChanges();
+
+                UpdateDataGridViewFH();
+                UpdateDataGridViewCL();
+            }
+            catch
+            {
+
+            }
         }
     }
 }

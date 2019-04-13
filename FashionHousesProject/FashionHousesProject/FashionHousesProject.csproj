@@ -58,6 +58,12 @@
     <Compile Include="AddClothToShopForm.Designer.cs">
       <DependentUpon>AddClothToShopForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddFashionHouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFashionHouse.Designer.cs">
+      <DependentUpon>AddFashionHouse.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangeCloth.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddClothToShopForm.resx">
       <DependentUpon>AddClothToShopForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddFashionHouse.resx">
+      <DependentUpon>AddFashionHouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangeCloth.resx">
       <DependentUpon>ChangeCloth.cs</DependentUpon>

@@ -566,6 +566,7 @@
             this.btnDelFH.TabIndex = 2;
             this.btnDelFH.Text = "Видалити Дом Моди";
             this.btnDelFH.UseVisualStyleBackColor = true;
+            this.btnDelFH.Click += new System.EventHandler(this.btnDelFH_Click);
             // 
             // btnAddFH
             // 
@@ -575,6 +576,7 @@
             this.btnAddFH.TabIndex = 1;
             this.btnAddFH.Text = "Додати Дом Моди";
             this.btnAddFH.UseVisualStyleBackColor = true;
+            this.btnAddFH.Click += new System.EventHandler(this.btnAddFH_Click);
             // 
             // dataGridViewFH
             // 
