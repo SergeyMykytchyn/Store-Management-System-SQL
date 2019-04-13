@@ -196,6 +196,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ShowDivisionsForm.resx">
       <DependentUpon>ShowDivisionsForm.cs</DependentUpon>
@@ -235,6 +236,9 @@
       <Project>{f5b0caf1-8d6e-4f04-b0f4-432b8f673c25}</Project>
       <Name>ClassLibraryFashionHouses</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pic.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

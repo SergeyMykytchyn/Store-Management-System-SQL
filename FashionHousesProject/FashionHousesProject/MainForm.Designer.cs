@@ -157,6 +157,7 @@
             // 
             this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox.ErrorImage = null;
+            this.pictureBox.Image = global::FashionHousesProject.Properties.Resources.pic;
             this.pictureBox.Location = new System.Drawing.Point(5, -10);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(1065, 325);
