@@ -561,5 +561,24 @@ namespace FashionHousesProject
 
             }
         }
+
+        private void btn_CHANGE_DES_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int DES_ID = Convert.ToInt32(dataGridViewDES.CurrentRow.Cells["dESIDDataGridViewTextBoxColumn"].Value);
+
+                ChangeDesignerForm cgdes = new ChangeDesignerForm(DES_ID);
+                cgdes.ShowDialog();
+
+                UpdateDataGridViewCL();
+                UpdateDataGridViewDES();
+                UpdateDataGridViewFH();
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

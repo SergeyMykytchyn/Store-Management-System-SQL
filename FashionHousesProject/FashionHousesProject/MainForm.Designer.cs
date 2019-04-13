@@ -726,6 +726,7 @@
             this.btn_CHANGE_DES.TabIndex = 14;
             this.btn_CHANGE_DES.Text = "Змiнити Iнформацiю про дизайнера";
             this.btn_CHANGE_DES.UseVisualStyleBackColor = true;
+            this.btn_CHANGE_DES.Click += new System.EventHandler(this.btn_CHANGE_DES_Click);
             // 
             // btn_DEL_DES
             // 
