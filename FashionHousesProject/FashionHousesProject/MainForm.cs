@@ -504,5 +504,62 @@ namespace FashionHousesProject
 
             dataGridViewDES.DataSource = table;
         }
+
+        private void UpdateDataGridViewDES()
+        {
+            this.designersTableAdapter.Fill(this.fashionHousesDataSet.Designers);
+            this.fashionHousesTableAdapter.Fill(this.fashionHousesDataSet.FashionHouses);
+        }
+
+        private void btn_ADD_DES_Click(object sender, EventArgs e)
+        {
+            AddDesignerForm desform = new AddDesignerForm();
+            desform.ShowDialog();
+
+            UpdateDataGridViewCL();
+            UpdateDataGridViewFH();
+            UpdateDataGridViewDES();
+        }
+
+        private void btn_DEL_DES_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int DES_ID = Convert.ToInt32(dataGridViewDES.CurrentRow.Cells["dESIDDataGridViewTextBoxColumn"].Value);
+
+                string query = "DELETE ClothesInShop FROM (ClothesInShop INNER JOIN Clothes ON CLSH_CL = CL_ID) INNER JOIN Designers ON CL_DES = DES_ID WHERE DES_ID = @DES_ID;";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, designersTableAdapter.Connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@DES_ID", DES_ID);
+                adapter.SelectCommand.Connection.Open();
+                adapter.SelectCommand.ExecuteNonQuery();
+                adapter.SelectCommand.Connection.Close();
+
+                query = "DELETE Clothes FROM Clothes WHERE CL_DES = @DES_ID";
+                adapter = new SqlDataAdapter(query, designersTableAdapter.Connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@DES_ID", DES_ID);
+                adapter.SelectCommand.Connection.Open();
+                adapter.SelectCommand.ExecuteNonQuery();
+                adapter.SelectCommand.Connection.Close();
+
+                query = "DELETE Designers FROM Designers WHERE DES_ID = @DES_ID";
+                adapter = new SqlDataAdapter(query, designersTableAdapter.Connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@DES_ID", DES_ID);
+                adapter.SelectCommand.Connection.Open();
+                adapter.SelectCommand.ExecuteNonQuery();
+                adapter.SelectCommand.Connection.Close();
+
+                fashionHousesDataSet.ClothesInShop.AcceptChanges();
+                fashionHousesDataSet.Clothes.AcceptChanges();
+                fashionHousesDataSet.Designers.AcceptChanges();
+
+                UpdateDataGridViewCL();
+                UpdateDataGridViewDES();
+                UpdateDataGridViewFH();
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

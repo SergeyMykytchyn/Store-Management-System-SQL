@@ -735,6 +735,7 @@
             this.btn_DEL_DES.TabIndex = 13;
             this.btn_DEL_DES.Text = "Видалити Дизайнера";
             this.btn_DEL_DES.UseVisualStyleBackColor = true;
+            this.btn_DEL_DES.Click += new System.EventHandler(this.btn_DEL_DES_Click);
             // 
             // btn_FILTER
             // 
@@ -854,6 +855,7 @@
             this.btn_ADD_DES.TabIndex = 1;
             this.btn_ADD_DES.Text = "Додати Дизайнера";
             this.btn_ADD_DES.UseVisualStyleBackColor = true;
+            this.btn_ADD_DES.Click += new System.EventHandler(this.btn_ADD_DES_Click);
             // 
             // dataGridViewDES
             // 
