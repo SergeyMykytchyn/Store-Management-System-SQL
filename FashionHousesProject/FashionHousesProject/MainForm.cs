@@ -407,5 +407,102 @@ namespace FashionHousesProject
 
             }
         }
+
+        private void btn_FILTER_Click(object sender, EventArgs e)
+        {
+            string DES_NAME = comboBox_DES_NAME.Text;
+            string DES_GENDER = comboBox_DES_GENDER.Text;
+            string DES_FH_NAME = comboBox_DES_FH.Text;
+            string DES_BIRTHDAY = comboBox_DES_BIRTHDAY.Text;
+            int DES_PASSPORT;
+
+            if (!FHexists(DES_FH_NAME) && DES_FH_NAME != String.Empty)
+            {
+                FashionHousesDataSet.ClothesDataTable cl = new FashionHousesDataSet.ClothesDataTable();
+                dataGridViewCL.DataSource = cl;
+                return;
+            }
+
+            if (!Int32.TryParse(comboBox_DES_PASSPORT.Text, out DES_PASSPORT) && comboBox_DES_PASSPORT.Text != String.Empty)
+            {
+                FashionHousesDataSet.ClothesDataTable cl = new FashionHousesDataSet.ClothesDataTable();
+                dataGridViewCL.DataSource = cl;
+                return;
+            }
+
+            string query = "SELECT * FROM Designers";
+            SqlDataAdapter adapter;
+            bool firstParameter = true;
+            int FH_ID = 0;
+
+            if (comboBox_DES_FH.Text != String.Empty)
+            {
+                FH_ID = get_FH_ID_by_FH_NAME(DES_FH_NAME);
+                if (firstParameter)
+                {
+                    query += " WHERE";
+                    firstParameter = false;
+                }
+                else query += " AND";
+                query += " DES_FH = @FH_ID";
+            }
+
+            if (DES_NAME != String.Empty)
+            {
+                if (firstParameter)
+                {
+                    query += " WHERE";
+                    firstParameter = false;
+                }
+                else query += " AND";
+                query += " DES_FULLNAME = @DES_NAME";
+            }
+
+
+            if (DES_GENDER != String.Empty)
+            {
+                if (firstParameter)
+                {
+                    query += " WHERE";
+                    firstParameter = false;
+                }
+                else query += " AND";
+                query += " DES_GENDER = @DES_GENDER";
+            }
+
+            if (DES_BIRTHDAY != String.Empty)
+            {
+                if (firstParameter)
+                {
+                    query += " WHERE";
+                    firstParameter = false;
+                }
+                else query += " AND";
+                query += " DES_BIRTHDAY = @DES_BIRTHDAY";
+            }
+
+            if (comboBox_DES_PASSPORT.Text != String.Empty)
+            {
+                if (firstParameter)
+                {
+                    query += " WHERE";
+                    firstParameter = false;
+                }
+                else query += " AND";
+                query += " DES_PASSPORT = @DES_PASSPORT";
+            }
+
+            adapter = new SqlDataAdapter(query, designersTableAdapter.Connection);
+            adapter.SelectCommand.Parameters.AddWithValue("@FH_ID", FH_ID);
+            adapter.SelectCommand.Parameters.AddWithValue("@DES_NAME", DES_NAME);
+            adapter.SelectCommand.Parameters.AddWithValue("@DES_GENDER", DES_GENDER);
+            adapter.SelectCommand.Parameters.AddWithValue("@DES_BIRTHDAY", DES_BIRTHDAY);
+            adapter.SelectCommand.Parameters.AddWithValue("@DES_PASSPORT", DES_PASSPORT);
+
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            dataGridViewDES.DataSource = table;
+        }
     }
 }
