@@ -478,6 +478,7 @@
             this.btn_SHOW_SH.TabIndex = 17;
             this.btn_SHOW_SH.Text = "Магазини Дому Моди";
             this.btn_SHOW_SH.UseVisualStyleBackColor = true;
+            this.btn_SHOW_SH.Click += new System.EventHandler(this.btn_SHOW_SH_Click);
             // 
             // btn_CHANGE_FH
             // 
